@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MEL Flight Explorer — UK to Melbourne Christmas 2025</title>
+<title>Melbourne · Christmas 2025 — Flight Explorer for Estelle</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -12,68 +12,70 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg-primary:#0a0e17;--bg-secondary:#111827;--bg-card:#1a2234;--bg-card-hover:#1f2b42;
-  --text-primary:#f0f2f5;--text-secondary:#94a3b8;--text-muted:#64748b;
-  --accent:#6366f1;--accent-glow:rgba(99,102,241,.25);
-  --green:#10b981;--green-bg:rgba(16,185,129,.12);--green-border:rgba(16,185,129,.3);
-  --amber:#f59e0b;--amber-bg:rgba(245,158,11,.12);--amber-border:rgba(245,158,11,.3);
-  --red:#ef4444;--red-bg:rgba(239,68,68,.12);--red-border:rgba(239,68,68,.3);
-  --orange:#fb923c;--orange-bg:rgba(251,146,60,.12);--orange-border:rgba(251,146,60,.3);
-  --border:#1e293b;--radius:12px;--radius-sm:8px;
+  --bg-primary:#07090e;--bg-secondary:#0c0f1a;--bg-card:#111525;--bg-card-hover:#161c2e;
+  --text-primary:#f2eff8;--text-secondary:#9492a8;--text-muted:#5a5870;
+  --accent:#7c3aed;--accent-light:#a78bfa;--accent-glow:rgba(124,58,237,.22);
+  --gold:#c9a84c;--gold-bg:rgba(201,168,76,.08);--gold-border:rgba(201,168,76,.25);
+  --green:#10b981;--green-bg:rgba(16,185,129,.1);--green-border:rgba(16,185,129,.28);
+  --amber:#f59e0b;--amber-bg:rgba(245,158,11,.1);--amber-border:rgba(245,158,11,.28);
+  --red:#ef4444;--red-bg:rgba(239,68,68,.1);--red-border:rgba(239,68,68,.28);
+  --orange:#e07b3a;--orange-bg:rgba(224,123,58,.1);--orange-border:rgba(224,123,58,.28);
+  --border:#1a1d2e;--radius:14px;--radius-sm:9px;
   --font-display:'Playfair Display',Georgia,serif;
   --font-body:'Space Grotesk','Segoe UI',sans-serif;
-  --shadow:0 4px 24px rgba(0,0,0,.4);
+  --shadow:0 8px 32px rgba(0,0,0,.55);
 }
 html{font-size:15px;scroll-behavior:smooth}
 body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);min-height:100vh;overflow-x:hidden}
 h1,h2,h3{font-family:var(--font-display);font-weight:700}
 
 /* HEADER */
-.header{background:linear-gradient(135deg,#0a0e17 0%,#131a2e 50%,#0a0e17 100%);border-bottom:1px solid var(--border);padding:1.2rem 1.5rem;position:sticky;top:0;z-index:1000;backdrop-filter:blur(12px)}
+.header{background:linear-gradient(160deg,#07090e 0%,#0e0b1c 45%,#09080f 100%);border-bottom:1px solid rgba(124,58,237,.18);padding:1.4rem 2rem;position:sticky;top:0;z-index:1000;backdrop-filter:blur(16px);box-shadow:0 1px 40px rgba(0,0,0,.6)}
+.header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(124,58,237,.4),rgba(201,168,76,.3),transparent)}
 .header-inner{max-width:1600px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem}
-.logo{display:flex;align-items:center;gap:.7rem}
-.logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),#a78bfa);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
-.logo h1{font-size:1.4rem;background:linear-gradient(135deg,#e0e7ff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.logo .subtitle{font-size:.75rem;color:var(--text-muted);font-family:var(--font-body);font-weight:400;letter-spacing:.05em}
-.trip-info{display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center}
-.trip-badge{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:.35rem .85rem;font-size:.78rem;color:var(--text-secondary);display:flex;align-items:center;gap:.4rem}
+.logo{display:flex;align-items:center;gap:.9rem}
+.logo-icon{width:44px;height:44px;background:linear-gradient(135deg,#5b21b6,var(--accent));border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 0 18px rgba(124,58,237,.4)}
+.logo h1{font-size:1.5rem;background:linear-gradient(135deg,#ede9f8,var(--accent-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-.02em}
+.logo .subtitle{font-size:.72rem;color:var(--gold);font-family:var(--font-body);font-weight:500;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.trip-info{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.trip-badge{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:.35rem .9rem;font-size:.75rem;color:var(--text-secondary);display:flex;align-items:center;gap:.4rem;letter-spacing:.01em}
 .trip-badge .icon{font-size:.9rem}
 
 /* FILTER BAR */
-.filter-bar{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:.8rem 1.5rem}
-.filter-inner{max-width:1600px;margin:0 auto;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
-.filter-group{display:flex;flex-direction:column;gap:.25rem}
-.filter-label{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
-.filter-group select,.filter-group input[type=range]{background:var(--bg-card);border:1px solid var(--border);color:var(--text-primary);border-radius:var(--radius-sm);padding:.4rem .6rem;font-family:var(--font-body);font-size:.82rem;outline:none;cursor:pointer}
-.filter-group select:hover{border-color:var(--accent)}
-.filter-group input[type=range]{-webkit-appearance:none;width:160px;height:6px;border-radius:3px;background:var(--border);border:none;padding:0}
-.filter-group input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);cursor:pointer;box-shadow:0 0 8px var(--accent-glow)}
-.budget-val{font-size:.82rem;color:var(--accent);font-weight:600;min-width:60px}
+.filter-bar{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:.9rem 2rem}
+.filter-inner{max-width:1600px;margin:0 auto;display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap}
+.filter-group{display:flex;flex-direction:column;gap:.28rem}
+.filter-label{font-size:.65rem;color:var(--accent-light);text-transform:uppercase;letter-spacing:.1em;font-weight:600;opacity:.75}
+.filter-group select,.filter-group input[type=range]{background:var(--bg-card);border:1px solid rgba(124,58,237,.2);color:var(--text-primary);border-radius:var(--radius-sm);padding:.4rem .7rem;font-family:var(--font-body);font-size:.82rem;outline:none;cursor:pointer;transition:border-color .2s}
+.filter-group select:hover{border-color:rgba(124,58,237,.5)}
+.filter-group input[type=range]{-webkit-appearance:none;width:160px;height:5px;border-radius:3px;background:var(--border);border:none;padding:0}
+.filter-group input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-light));cursor:pointer;box-shadow:0 0 10px var(--accent-glow)}
+.budget-val{font-size:.82rem;color:var(--accent-light);font-weight:600;min-width:60px}
 
 /* SORT TOGGLE */
-.sort-toggle{display:flex;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-left:auto}
-.sort-btn{padding:.4rem 1rem;font-size:.78rem;font-family:var(--font-body);border:none;background:transparent;color:var(--text-secondary);cursor:pointer;transition:all .2s;font-weight:500}
-.sort-btn.active{background:var(--accent);color:#fff}
+.sort-toggle{display:flex;background:var(--bg-card);border:1px solid rgba(124,58,237,.2);border-radius:22px;overflow:hidden;margin-left:auto}
+.sort-btn{padding:.4rem 1.1rem;font-size:.75rem;font-family:var(--font-body);border:none;background:transparent;color:var(--text-secondary);cursor:pointer;transition:all .2s;font-weight:500;letter-spacing:.02em}
+.sort-btn.active{background:linear-gradient(135deg,var(--accent),#5b21b6);color:#fff}
 
 /* MAIN LAYOUT */
 .main{max-width:1600px;margin:0 auto;display:grid;grid-template-columns:1fr 440px;gap:0;min-height:calc(100vh - 160px)}
 .map-container{position:relative;min-height:500px}
 #map{width:100%;height:100%;min-height:500px;background:var(--bg-primary)}
-.map-legend{position:absolute;bottom:20px;left:20px;background:rgba(10,14,23,.92);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.7rem 1rem;z-index:800;font-size:.75rem}
+.map-legend{position:absolute;bottom:20px;left:20px;background:rgba(7,9,14,.94);backdrop-filter:blur(12px);border:1px solid rgba(124,58,237,.2);border-radius:12px;padding:.8rem 1.1rem;z-index:800;font-size:.74rem;box-shadow:0 4px 20px rgba(0,0,0,.5)}
 .legend-item{display:flex;align-items:center;gap:.5rem;margin:.25rem 0}
 .legend-dot{width:10px;height:10px;border-radius:50%}
 .legend-line-dashed{width:20px;height:2px;border-top:2px dashed;opacity:.8}
 .legend-line-solid{width:20px;height:3px;border-radius:1px}
 
 /* ROUTE CARDS PANEL */
-.cards-panel{background:var(--bg-secondary);border-left:1px solid var(--border);overflow-y:auto;max-height:calc(100vh - 160px);padding:1rem}
-.cards-panel::-webkit-scrollbar{width:6px}
+.cards-panel{background:var(--bg-secondary);border-left:1px solid var(--border);overflow-y:auto;max-height:calc(100vh - 160px);padding:1.1rem}
+.cards-panel::-webkit-scrollbar{width:5px}
 .cards-panel::-webkit-scrollbar-track{background:var(--bg-secondary)}
-.cards-panel::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-.cards-count{font-size:.8rem;color:var(--text-muted);margin-bottom:.8rem;padding:0 .2rem}
-.route-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:.8rem;cursor:pointer;transition:all .25s ease;position:relative;overflow:hidden}
-.route-card:hover{background:var(--bg-card-hover);border-color:rgba(99,102,241,.3);transform:translateY(-1px);box-shadow:var(--shadow)}
-.route-card.active{border-color:var(--accent);box-shadow:0 0 20px var(--accent-glow)}
+.cards-panel::-webkit-scrollbar-thumb{background:rgba(124,58,237,.3);border-radius:3px}
+.cards-count{font-size:.75rem;color:var(--text-muted);margin-bottom:.9rem;padding:0 .2rem;letter-spacing:.04em;text-transform:uppercase}
+.route-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem;margin-bottom:.85rem;cursor:pointer;transition:all .25s ease;position:relative;overflow:hidden}
+.route-card:hover{background:var(--bg-card-hover);border-color:rgba(124,58,237,.3);transform:translateY(-1px);box-shadow:var(--shadow)}
+.route-card.active{border-color:var(--accent);box-shadow:0 0 24px rgba(124,58,237,.25)}
 .route-card.green-band{border-left:3px solid var(--green)}
 .route-card.amber-band{border-left:3px solid var(--amber)}
 .route-card.red-band{border-left:3px solid var(--red)}
@@ -82,11 +84,11 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
 .card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem;flex-wrap:wrap;gap:.3rem}
 .card-airlines{font-weight:600;font-size:.95rem}
 .card-badges{display:flex;flex-wrap:wrap;gap:.3rem}
-.card-badge{font-size:.68rem;padding:.2rem .55rem;border-radius:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.card-badge{font-size:.64rem;padding:.18rem .55rem;border-radius:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
 .badge-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
 .badge-amber{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border)}
 .badge-red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
-.badge-unconv{background:rgba(168,139,250,.12);color:#a78bfa;border:1px solid rgba(168,139,250,.3)}
+.badge-unconv{background:rgba(124,58,237,.1);color:var(--accent-light);border:1px solid rgba(124,58,237,.25)}
 .badge-stopover{background:var(--orange-bg);color:var(--orange);border:1px solid var(--orange-border)}
 
 .card-route{display:flex;align-items:center;gap:.3rem;font-size:.82rem;color:var(--text-secondary);margin-bottom:.5rem;flex-wrap:wrap}
@@ -119,8 +121,24 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
 .btn-skyscanner{background:linear-gradient(135deg,#00a698,#00d4aa);color:#fff}
 .btn-skyscanner:hover{box-shadow:0 4px 12px rgba(0,166,152,.4)}
 
+/* WELCOME BANNER */
+.welcome-banner{background:linear-gradient(135deg,#0d0b1e 0%,#120a28 50%,#0b0d1a 100%);border-bottom:1px solid rgba(124,58,237,.2);padding:1.2rem 2rem;position:relative;overflow:hidden}
+.welcome-banner::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.12) 0%,transparent 70%)}
+.welcome-banner::after{content:'';position:absolute;bottom:-40px;left:20%;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%)}
+.welcome-inner{max-width:1600px;margin:0 auto;display:flex;align-items:flex-start;gap:2rem;position:relative;z-index:1}
+.welcome-text{flex:1}
+.welcome-greeting{font-family:var(--font-display);font-size:1.25rem;color:var(--text-primary);margin-bottom:.35rem;letter-spacing:-.01em}
+.welcome-greeting span{background:linear-gradient(135deg,var(--gold),#e8c97a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.welcome-desc{font-size:.83rem;color:var(--text-secondary);line-height:1.65;max-width:680px;margin-bottom:.9rem}
+.welcome-tips{display:flex;gap:.7rem;flex-wrap:wrap}
+.tip{display:flex;align-items:flex-start;gap:.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(124,58,237,.15);border-radius:10px;padding:.55rem .75rem;font-size:.76rem;color:var(--text-secondary);line-height:1.45;max-width:240px}
+.tip-icon{font-size:.95rem;flex-shrink:0;margin-top:.05rem}
+.tip strong{color:var(--text-primary);display:block;margin-bottom:.1rem;font-size:.75rem}
+.welcome-dismiss{flex-shrink:0;background:transparent;border:1px solid rgba(124,58,237,.25);color:var(--text-muted);border-radius:8px;padding:.45rem .9rem;font-size:.72rem;font-family:var(--font-body);cursor:pointer;transition:all .2s;letter-spacing:.05em;text-transform:uppercase;align-self:flex-start;margin-top:.15rem}
+.welcome-dismiss:hover{border-color:var(--accent-light);color:var(--accent-light)}
+
 /* DISCLAIMER */
-.disclaimer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:.8rem 1.5rem;text-align:center;font-size:.72rem;color:var(--text-muted)}
+.disclaimer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:.9rem 2rem;text-align:center;font-size:.7rem;color:var(--text-muted);letter-spacing:.02em}
 
 /* MOBILE */
 @media(max-width:900px){
@@ -138,15 +156,19 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
 }
 
 /* MAP POPUPS */
-.leaflet-popup-content-wrapper{background:var(--bg-card)!important;color:var(--text-primary)!important;border:1px solid var(--border)!important;border-radius:var(--radius-sm)!important;box-shadow:var(--shadow)!important}
-.leaflet-popup-tip{background:var(--bg-card)!important;border:1px solid var(--border)!important}
+.leaflet-popup-content-wrapper{background:#0e0f1c!important;color:var(--text-primary)!important;border:1px solid rgba(124,58,237,.25)!important;border-radius:12px!important;box-shadow:0 8px 32px rgba(0,0,0,.7)!important}
+.leaflet-popup-tip{background:#0e0f1c!important}
 .leaflet-popup-content{font-family:var(--font-body)!important;font-size:.82rem!important;line-height:1.5!important}
-.hub-popup h3{font-family:var(--font-display);font-size:1rem;margin-bottom:.3rem;color:var(--accent)}
+.hub-popup h3{font-family:var(--font-display);font-size:1rem;margin-bottom:.3rem;color:var(--accent-light)}
 .hub-popup h3.stopover-hub-title{color:var(--orange)}
 .hub-popup .airlines{color:var(--text-secondary);font-size:.78rem;margin:.2rem 0}
 .hub-popup .layover{color:var(--amber);font-size:.78rem}
 .hub-popup .hotel-note{color:var(--orange);font-size:.78rem;font-weight:600}
 .hub-popup .flavour{color:var(--text-muted);font-size:.75rem;font-style:italic;margin-top:.3rem}
+
+/* LEAFLET TOOLTIP STYLE */
+.leaflet-tooltip{background:#0d0b1e!important;border:1px solid rgba(124,58,237,.3)!important;color:var(--text-primary)!important;font-family:var(--font-body)!important;font-size:.75rem!important;padding:.3rem .65rem!important;border-radius:6px!important;box-shadow:0 2px 12px rgba(0,0,0,.4)!important;white-space:nowrap!important}
+.leaflet-tooltip-top::before,.leaflet-tooltip-bottom::before{border-top-color:#0d0b1e!important;border-bottom-color:#0d0b1e!important}
 
 /* ANIMATED ARCS */
 .arc-path{stroke-dasharray:8 6;animation:dash 30s linear infinite}
@@ -156,7 +178,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
 .arc-path.glow-amber{filter:drop-shadow(0 0 4px rgba(245,158,11,.5))}
 .arc-path.glow-red{filter:drop-shadow(0 0 4px rgba(239,68,68,.5))}
 .arc-path.glow-orange{filter:drop-shadow(0 0 5px rgba(251,146,60,.6))}
-.arc-path.highlight{stroke-width:4.5!important;filter:drop-shadow(0 0 10px rgba(99,102,241,.8))!important;stroke-dasharray:none!important;animation:none!important}
+.arc-path.highlight{stroke-width:4.5!important;filter:drop-shadow(0 0 10px rgba(124,58,237,.85))!important;stroke-dasharray:none!important;animation:none!important}
 </style>
 </head>
 <body>
@@ -167,8 +189,8 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
     <div class="logo">
       <div class="logo-icon">✈</div>
       <div>
-        <h1>MEL Flight Explorer</h1>
-        <div class="subtitle">UK → Melbourne · Christmas 2025</div>
+        <h1>Melbourne Flight Explorer</h1>
+        <div class="subtitle">Prepared exclusively for Estelle · Christmas 2025</div>
       </div>
     </div>
     <div class="trip-info">
@@ -179,6 +201,23 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
     </div>
   </div>
 </header>
+
+<!-- WELCOME BANNER -->
+<div class="welcome-banner" id="welcomeBanner">
+  <div class="welcome-inner">
+    <div class="welcome-text">
+      <div class="welcome-greeting">Good to have you here, <span>Estelle.</span></div>
+      <div class="welcome-desc">This tool brings together every viable UK–Melbourne flight option for your Christmas trip — comparing routes, prices, stopovers, and hotel costs side by side. Here's how to make the most of it:</div>
+      <div class="welcome-tips">
+        <div class="tip"><span class="tip-icon">🗺️</span><div><strong>Explore the map</strong>Coloured arcs show each route. Dashed lines are quick transits; solid arcs include an overnight stopover.</div></div>
+        <div class="tip"><span class="tip-icon">🃏</span><div><strong>Click any card</strong>Selecting a route highlights its path on the map and pulls up a hub popup with local tips.</div></div>
+        <div class="tip"><span class="tip-icon">🔽</span><div><strong>Use the filters</strong>Narrow by departure airport, journey type, travel date, budget, or number of connections.</div></div>
+        <div class="tip"><span class="tip-icon">✈️</span><div><strong>Book live prices</strong>Hit Google Flights or Skyscanner on any card — prices here are indicative guides only.</div></div>
+      </div>
+    </div>
+    <button class="welcome-dismiss" onclick="document.getElementById('welcomeBanner').style.display='none'">Dismiss</button>
+  </div>
+</div>
 
 <!-- FILTER BAR -->
 <div class="filter-bar">
@@ -256,7 +295,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
 
 <!-- DISCLAIMER -->
 <div class="disclaimer">
-  ⚠️ Prices and hotel estimates are indicative. Hotel costs assume a 3★ family room (2 adults + 2 children). Click <strong>Google Flights</strong> or <strong>Skyscanner</strong> on any card to see live current pricing.
+  All prices and hotel estimates are indicative and subject to change. Hotel costs assume a 3★ family room (2 adults + 2 children), split across 4 passengers. Always verify live pricing via <strong style="color:var(--text-secondary)">Google Flights</strong> or <strong style="color:var(--text-secondary)">Skyscanner</strong> before booking.
 </div>
 
 <script>
@@ -431,10 +470,14 @@ function getSaving(route) {
 }
 
 function buildGoogleFlightsURL(route) {
-  return `https://www.google.com/travel/flights?q=Flights+from+${route.origin}+to+MEL+on+${route.dates[0]}+return+${route.returnDate}+2+adults+1+child+aged+4+1+child+aged+7+economy`;
+  // Google Flights hash deep-link: origin.dest.YYYY-MM-DD*dest.origin.YYYY-MM-DD;c:GBP;e:1;sd:1;t:f
+  const out = route.dates[0];
+  const ret = route.returnDate;
+  return `https://www.google.com/travel/flights#flt=${route.origin}.MEL.${out}*MEL.${route.origin}.${ret};c:GBP;e:1;sd:1;t:f`;
 }
 
 function buildSkyscannerURL(route) {
+  // Skyscanner deep-link: /from/to/YYMMDD/YYMMDD?params
   const outDate = route.dates[0].replace(/-/g,'').slice(2);
   const retDate = route.returnDate.replace(/-/g,'').slice(2);
   return `https://www.skyscanner.net/transport/flights/${route.origin.toLowerCase()}/mel/${outDate}/${retDate}/?adults=2&children=2&childrenyoungest=4&childrenoldest=7&cabinclass=economy`;
@@ -459,9 +502,9 @@ Object.entries(HUB_INFO).forEach(([code,info]) => {
   const isStopoverHub = stopoverHubCodes.has(code);
   const marker = L.circleMarker([ap.lat,ap.lng],{
     radius: isStopoverHub ? 9 : 7,
-    fillColor: isStopoverHub ? '#fb923c' : '#6366f1',
-    fillOpacity: 0.85,
-    color: isStopoverHub ? '#fdba74' : '#a78bfa',
+    fillColor: isStopoverHub ? '#e07b3a' : '#7c3aed',
+    fillOpacity: 0.88,
+    color: isStopoverHub ? '#f4a76c' : '#c4b5fd',
     weight: isStopoverHub ? 3 : 2
   }).addTo(map);
 
@@ -481,9 +524,9 @@ Object.entries(HUB_INFO).forEach(([code,info]) => {
 // Origin markers
 ['MAN','BHX','LHR'].forEach(code => {
   const ap = AIRPORTS[code];
-  L.circleMarker([ap.lat,ap.lng],{radius:9,fillColor:'#e0e7ff',fillOpacity:.9,color:'#6366f1',weight:3})
+  L.circleMarker([ap.lat,ap.lng],{radius:9,fillColor:'#ddd6fe',fillOpacity:.9,color:'#7c3aed',weight:3})
    .addTo(map)
-   .bindTooltip(ap.name,{permanent:true,direction:'top',offset:[0,-10]});
+   .bindTooltip(ap.name,{permanent:true,direction:'top',offset:[0,-10],className:'origin-tooltip'});
 });
 
 // MEL marker
