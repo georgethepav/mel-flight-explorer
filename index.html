@@ -18,6 +18,7 @@
   --green:#10b981;--green-bg:rgba(16,185,129,.12);--green-border:rgba(16,185,129,.3);
   --amber:#f59e0b;--amber-bg:rgba(245,158,11,.12);--amber-border:rgba(245,158,11,.3);
   --red:#ef4444;--red-bg:rgba(239,68,68,.12);--red-border:rgba(239,68,68,.3);
+  --orange:#fb923c;--orange-bg:rgba(251,146,60,.12);--orange-border:rgba(251,146,60,.3);
   --border:#1e293b;--radius:12px;--radius-sm:8px;
   --font-display:'Playfair Display',Georgia,serif;
   --font-body:'Space Grotesk','Segoe UI',sans-serif;
@@ -27,7 +28,7 @@ html{font-size:15px;scroll-behavior:smooth}
 body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);min-height:100vh;overflow-x:hidden}
 h1,h2,h3{font-family:var(--font-display);font-weight:700}
 
-/* ── HEADER ── */
+/* HEADER */
 .header{background:linear-gradient(135deg,#0a0e17 0%,#131a2e 50%,#0a0e17 100%);border-bottom:1px solid var(--border);padding:1.2rem 1.5rem;position:sticky;top:0;z-index:1000;backdrop-filter:blur(12px)}
 .header-inner{max-width:1600px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem}
 .logo{display:flex;align-items:center;gap:.7rem}
@@ -38,14 +39,13 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
 .trip-badge{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:.35rem .85rem;font-size:.78rem;color:var(--text-secondary);display:flex;align-items:center;gap:.4rem}
 .trip-badge .icon{font-size:.9rem}
 
-/* ── FILTER BAR ── */
+/* FILTER BAR */
 .filter-bar{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:.8rem 1.5rem}
 .filter-inner{max-width:1600px;margin:0 auto;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
 .filter-group{display:flex;flex-direction:column;gap:.25rem}
 .filter-label{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
 .filter-group select,.filter-group input[type=range]{background:var(--bg-card);border:1px solid var(--border);color:var(--text-primary);border-radius:var(--radius-sm);padding:.4rem .6rem;font-family:var(--font-body);font-size:.82rem;outline:none;cursor:pointer}
 .filter-group select:hover{border-color:var(--accent)}
-
 .filter-group input[type=range]{-webkit-appearance:none;width:160px;height:6px;border-radius:3px;background:var(--border);border:none;padding:0}
 .filter-group input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);cursor:pointer;box-shadow:0 0 8px var(--accent-glow)}
 .budget-val{font-size:.82rem;color:var(--accent);font-weight:600;min-width:60px}
@@ -55,38 +55,45 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
 .sort-btn{padding:.4rem 1rem;font-size:.78rem;font-family:var(--font-body);border:none;background:transparent;color:var(--text-secondary);cursor:pointer;transition:all .2s;font-weight:500}
 .sort-btn.active{background:var(--accent);color:#fff}
 
-/* ── MAIN LAYOUT ── */
-.main{max-width:1600px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:0;min-height:calc(100vh - 160px)}
+/* MAIN LAYOUT */
+.main{max-width:1600px;margin:0 auto;display:grid;grid-template-columns:1fr 440px;gap:0;min-height:calc(100vh - 160px)}
 .map-container{position:relative;min-height:500px}
 #map{width:100%;height:100%;min-height:500px;background:var(--bg-primary)}
 .map-legend{position:absolute;bottom:20px;left:20px;background:rgba(10,14,23,.92);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.7rem 1rem;z-index:800;font-size:.75rem}
 .legend-item{display:flex;align-items:center;gap:.5rem;margin:.25rem 0}
 .legend-dot{width:10px;height:10px;border-radius:50%}
+.legend-line-dashed{width:20px;height:2px;border-top:2px dashed;opacity:.8}
+.legend-line-solid{width:20px;height:3px;border-radius:1px}
 
-/* ── ROUTE CARDS PANEL ── */
+/* ROUTE CARDS PANEL */
 .cards-panel{background:var(--bg-secondary);border-left:1px solid var(--border);overflow-y:auto;max-height:calc(100vh - 160px);padding:1rem}
 .cards-panel::-webkit-scrollbar{width:6px}
 .cards-panel::-webkit-scrollbar-track{background:var(--bg-secondary)}
 .cards-panel::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 .cards-count{font-size:.8rem;color:var(--text-muted);margin-bottom:.8rem;padding:0 .2rem}
-
 .route-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:.8rem;cursor:pointer;transition:all .25s ease;position:relative;overflow:hidden}
 .route-card:hover{background:var(--bg-card-hover);border-color:rgba(99,102,241,.3);transform:translateY(-1px);box-shadow:var(--shadow)}
 .route-card.active{border-color:var(--accent);box-shadow:0 0 20px var(--accent-glow)}
 .route-card.green-band{border-left:3px solid var(--green)}
 .route-card.amber-band{border-left:3px solid var(--amber)}
 .route-card.red-band{border-left:3px solid var(--red)}
+.route-card.stopover-card{border-left:3px solid var(--orange)}
 
-.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem;flex-wrap:wrap;gap:.3rem}
 .card-airlines{font-weight:600;font-size:.95rem}
+.card-badges{display:flex;flex-wrap:wrap;gap:.3rem}
 .card-badge{font-size:.68rem;padding:.2rem .55rem;border-radius:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
 .badge-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
 .badge-amber{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border)}
 .badge-red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
-.badge-unconv{background:rgba(168,139,250,.12);color:#a78bfa;border:1px solid rgba(168,139,250,.3);margin-left:.3rem}
+.badge-unconv{background:rgba(168,139,250,.12);color:#a78bfa;border:1px solid rgba(168,139,250,.3)}
+.badge-stopover{background:var(--orange-bg);color:var(--orange);border:1px solid var(--orange-border)}
 
-.card-route{display:flex;align-items:center;gap:.4rem;font-size:.82rem;color:var(--text-secondary);margin-bottom:.5rem;flex-wrap:wrap}
+.card-route{display:flex;align-items:center;gap:.3rem;font-size:.82rem;color:var(--text-secondary);margin-bottom:.5rem;flex-wrap:wrap}
 .card-route .hub{color:var(--accent);font-weight:600}
+.card-route .hub-stopover{color:var(--orange);font-weight:700}
+.card-route .hub-tag{font-size:.7rem;color:var(--text-muted);font-style:italic}
+.card-route .hub-tag-stopover{font-size:.7rem;color:var(--orange);font-weight:600}
 .card-route .arrow{color:var(--text-muted);font-size:.7rem}
 
 .card-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;margin-bottom:.7rem}
@@ -94,10 +101,16 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
 .stat-val{font-size:.9rem;font-weight:600;color:var(--text-primary)}
 .stat-label{font-size:.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em}
 
-.card-price{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.7rem;padding:.5rem .6rem;background:rgba(255,255,255,.03);border-radius:var(--radius-sm)}
+.card-price{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.7rem;padding:.5rem .6rem;background:rgba(255,255,255,.03);border-radius:var(--radius-sm)}
+.price-left{display:flex;flex-direction:column;gap:.15rem}
 .price-pp{font-size:1.1rem;font-weight:700}
 .price-total{font-size:.8rem;color:var(--text-secondary)}
-.saving-note{font-size:.72rem;color:var(--green);margin-top:.2rem;font-weight:500}
+.saving-note{font-size:.72rem;color:var(--green);font-weight:500}
+
+.hotel-breakdown{margin-bottom:.6rem;padding:.5rem .6rem;background:var(--orange-bg);border:1px solid var(--orange-border);border-radius:var(--radius-sm);font-size:.78rem}
+.hotel-breakdown-header{color:var(--orange);font-weight:600;margin-bottom:.3rem;display:flex;align-items:center;gap:.3rem}
+.hotel-row{display:flex;justify-content:space-between;color:var(--text-secondary);margin:.1rem 0}
+.hotel-total-row{display:flex;justify-content:space-between;color:var(--text-primary);font-weight:600;margin-top:.3rem;padding-top:.3rem;border-top:1px solid var(--orange-border)}
 
 .card-actions{display:flex;gap:.5rem}
 .card-actions a{flex:1;text-align:center;padding:.45rem .6rem;border-radius:var(--radius-sm);font-size:.75rem;font-weight:600;text-decoration:none;transition:all .2s;font-family:var(--font-body)}
@@ -106,10 +119,10 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
 .btn-skyscanner{background:linear-gradient(135deg,#00a698,#00d4aa);color:#fff}
 .btn-skyscanner:hover{box-shadow:0 4px 12px rgba(0,166,152,.4)}
 
-/* ── DISCLAIMER ── */
+/* DISCLAIMER */
 .disclaimer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:.8rem 1.5rem;text-align:center;font-size:.72rem;color:var(--text-muted)}
 
-/* ── MOBILE ── */
+/* MOBILE */
 @media(max-width:900px){
   .main{grid-template-columns:1fr;grid-template-rows:50vh auto}
   .cards-panel{max-height:none;border-left:none;border-top:1px solid var(--border)}
@@ -124,22 +137,26 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
   .card-actions{flex-direction:column}
 }
 
-/* ── MAP POPUPS ── */
+/* MAP POPUPS */
 .leaflet-popup-content-wrapper{background:var(--bg-card)!important;color:var(--text-primary)!important;border:1px solid var(--border)!important;border-radius:var(--radius-sm)!important;box-shadow:var(--shadow)!important}
 .leaflet-popup-tip{background:var(--bg-card)!important;border:1px solid var(--border)!important}
 .leaflet-popup-content{font-family:var(--font-body)!important;font-size:.82rem!important;line-height:1.5!important}
 .hub-popup h3{font-family:var(--font-display);font-size:1rem;margin-bottom:.3rem;color:var(--accent)}
+.hub-popup h3.stopover-hub-title{color:var(--orange)}
 .hub-popup .airlines{color:var(--text-secondary);font-size:.78rem;margin:.2rem 0}
 .hub-popup .layover{color:var(--amber);font-size:.78rem}
+.hub-popup .hotel-note{color:var(--orange);font-size:.78rem;font-weight:600}
 .hub-popup .flavour{color:var(--text-muted);font-size:.75rem;font-style:italic;margin-top:.3rem}
 
-/* ── ANIMATED ARCS ── */
+/* ANIMATED ARCS */
 .arc-path{stroke-dasharray:8 6;animation:dash 30s linear infinite}
 @keyframes dash{to{stroke-dashoffset:-1000}}
+.arc-path.arc-solid{stroke-dasharray:none!important;animation:none!important}
 .arc-path.glow-green{filter:drop-shadow(0 0 4px rgba(16,185,129,.5))}
 .arc-path.glow-amber{filter:drop-shadow(0 0 4px rgba(245,158,11,.5))}
 .arc-path.glow-red{filter:drop-shadow(0 0 4px rgba(239,68,68,.5))}
-.arc-path.highlight{stroke-width:4!important;filter:drop-shadow(0 0 10px rgba(99,102,241,.8))!important;stroke-dasharray:none!important}
+.arc-path.glow-orange{filter:drop-shadow(0 0 5px rgba(251,146,60,.6))}
+.arc-path.highlight{stroke-width:4.5!important;filter:drop-shadow(0 0 10px rgba(99,102,241,.8))!important;stroke-dasharray:none!important;animation:none!important}
 </style>
 </head>
 <body>
@@ -155,7 +172,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
       </div>
     </div>
     <div class="trip-info">
-      <div class="trip-badge"><span class="icon">👨‍👩‍👧‍👦</span> 2 Adults + 2 Children (4 & 7)</div>
+      <div class="trip-badge"><span class="icon">👨‍👩‍👧‍👦</span> 2 Adults + 2 Children (4 &amp; 7)</div>
       <div class="trip-badge"><span class="icon">📅</span> 25–28 Dec → 14 Jan</div>
       <div class="trip-badge"><span class="icon">💷</span> £4,000–£4,600 total</div>
       <div class="trip-badge"><span class="icon">💺</span> Economy</div>
@@ -176,6 +193,14 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
       </select>
     </div>
     <div class="filter-group">
+      <span class="filter-label">Journey Type</span>
+      <select id="filterType">
+        <option value="ALL">All Routes</option>
+        <option value="TRANSIT">Transfers Only</option>
+        <option value="STOPOVER">Includes Stopover</option>
+      </select>
+    </div>
+    <div class="filter-group">
       <span class="filter-label">Outbound Date</span>
       <select id="filterDate">
         <option value="ALL">Any (25–28 Dec)</option>
@@ -186,7 +211,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
       </select>
     </div>
     <div class="filter-group">
-      <span class="filter-label">Max Budget / Person</span>
+      <span class="filter-label">Max Budget / Person (total)</span>
       <div style="display:flex;align-items:center;gap:.5rem">
         <input type="range" id="filterBudget" min="500" max="2000" value="1500" step="50">
         <span class="budget-val" id="budgetDisplay">£1,500</span>
@@ -212,10 +237,14 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
   <div class="map-container">
     <div id="map"></div>
     <div class="map-legend">
-      <div style="font-weight:600;margin-bottom:.3rem;color:var(--text-primary)">Price per person</div>
+      <div style="font-weight:600;margin-bottom:.4rem;color:var(--text-primary)">Price per person (total)</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Under £1,000</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--amber)"></div> £1,000 – £1,150</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> Over £1,150</div>
+      <div style="border-top:1px solid var(--border);margin:.5rem 0"></div>
+      <div style="font-weight:600;margin-bottom:.3rem;color:var(--text-primary)">Arc style</div>
+      <div class="legend-item"><div class="legend-line-dashed" style="border-color:var(--green)"></div> Transit (connection only)</div>
+      <div class="legend-item"><div class="legend-line-solid" style="background:var(--orange);height:3px"></div> 🏨 Includes stopover</div>
       <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div> 💡 Unconventional</div>
     </div>
   </div>
@@ -227,218 +256,171 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
 
 <!-- DISCLAIMER -->
 <div class="disclaimer">
-  ⚠️ Prices shown are indicative estimates based on typical market rates for Christmas 2025 travel. Click <strong>Search This Route</strong> on any card to see live current pricing on Google Flights or Skyscanner.
+  ⚠️ Prices and hotel estimates are indicative. Hotel costs assume a 3★ family room (2 adults + 2 children). Click <strong>Google Flights</strong> or <strong>Skyscanner</strong> on any card to see live current pricing.
 </div>
 
 <script>
 // ══════════════════════════════════════════════
-// DATA
+// AIRPORT DATA
 // ══════════════════════════════════════════════
-
 const AIRPORTS = {
-  MAN: { name: "Manchester", lat: 53.3537, lng: -2.275, country: "UK" },
-  BHX: { name: "Birmingham", lat: 52.4539, lng: -1.7480, country: "UK" },
-  LHR: { name: "London Heathrow", lat: 51.4700, lng: -0.4543, country: "UK" },
-  MEL: { name: "Melbourne", lat: -37.6690, lng: 144.8410, country: "Australia" },
-  // Middle East
-  DXB: { name: "Dubai", lat: 25.2532, lng: 55.3657, country: "UAE" },
-  DOH: { name: "Doha", lat: 25.2731, lng: 51.6081, country: "Qatar" },
-  AUH: { name: "Abu Dhabi", lat: 24.4330, lng: 54.6511, country: "UAE" },
-  // Asia
-  SIN: { name: "Singapore", lat: 1.3644, lng: 103.9915, country: "Singapore" },
-  KUL: { name: "Kuala Lumpur", lat: 2.7456, lng: 101.7099, country: "Malaysia" },
-  HKG: { name: "Hong Kong", lat: 22.3080, lng: 113.9185, country: "Hong Kong" },
-  BKK: { name: "Bangkok", lat: 13.6900, lng: 100.7501, country: "Thailand" },
-  NRT: { name: "Tokyo Narita", lat: 35.7647, lng: 140.3864, country: "Japan" },
-  // Europe
-  AMS: { name: "Amsterdam", lat: 52.3105, lng: 4.7683, country: "Netherlands" },
-  FRA: { name: "Frankfurt", lat: 50.0379, lng: 8.5622, country: "Germany" },
-  CDG: { name: "Paris CDG", lat: 49.0097, lng: 2.5479, country: "France" },
-  HEL: { name: "Helsinki", lat: 60.3172, lng: 24.9633, country: "Finland" },
-  IST: { name: "Istanbul", lat: 41.2753, lng: 28.7519, country: "Turkey" },
-  // Unconventional
-  DUB: { name: "Dublin", lat: 53.4264, lng: -6.2499, country: "Ireland" },
-  BUD: { name: "Budapest", lat: 47.4399, lng: 19.2612, country: "Hungary" },
-  LAX: { name: "Los Angeles", lat: 33.9416, lng: -118.4085, country: "USA" },
-  DFW: { name: "Dallas", lat: 32.8998, lng: -97.0403, country: "USA" }
+  MAN:{name:"Manchester",lat:53.3537,lng:-2.275,country:"UK"},
+  BHX:{name:"Birmingham",lat:52.4539,lng:-1.7480,country:"UK"},
+  LHR:{name:"London Heathrow",lat:51.4700,lng:-0.4543,country:"UK"},
+  MEL:{name:"Melbourne",lat:-37.6690,lng:144.8410,country:"Australia"},
+  DXB:{name:"Dubai",lat:25.2532,lng:55.3657,country:"UAE"},
+  DOH:{name:"Doha",lat:25.2731,lng:51.6081,country:"Qatar"},
+  AUH:{name:"Abu Dhabi",lat:24.4330,lng:54.6511,country:"UAE"},
+  SIN:{name:"Singapore",lat:1.3644,lng:103.9915,country:"Singapore"},
+  KUL:{name:"Kuala Lumpur",lat:2.7456,lng:101.7099,country:"Malaysia"},
+  HKG:{name:"Hong Kong",lat:22.3080,lng:113.9185,country:"Hong Kong"},
+  BKK:{name:"Bangkok",lat:13.6900,lng:100.7501,country:"Thailand"},
+  NRT:{name:"Tokyo Narita",lat:35.7647,lng:140.3864,country:"Japan"},
+  AMS:{name:"Amsterdam",lat:52.3105,lng:4.7683,country:"Netherlands"},
+  FRA:{name:"Frankfurt",lat:50.0379,lng:8.5622,country:"Germany"},
+  CDG:{name:"Paris CDG",lat:49.0097,lng:2.5479,country:"France"},
+  HEL:{name:"Helsinki",lat:60.3172,lng:24.9633,country:"Finland"},
+  IST:{name:"Istanbul",lat:41.2753,lng:28.7519,country:"Turkey"},
+  DUB:{name:"Dublin",lat:53.4264,lng:-6.2499,country:"Ireland"},
+  BUD:{name:"Budapest",lat:47.4399,lng:19.2612,country:"Hungary"},
+  LAX:{name:"Los Angeles",lat:33.9416,lng:-118.4085,country:"USA"},
+  DFW:{name:"Dallas",lat:32.8998,lng:-97.0403,country:"USA"},
 };
 
 const HUB_INFO = {
-  DXB: { flavour: "World-class airport, easy city visit in 12+ hours", layover: "3–14h", airlines: ["Emirates"] },
-  DOH: { flavour: "Stunning new terminal, family lounge, desert excursions", layover: "3–10h", airlines: ["Qatar Airways"] },
-  AUH: { flavour: "Excellent kids facilities, Louvre Abu Dhabi nearby", layover: "3–12h", airlines: ["Etihad Airways"] },
-  SIN: { flavour: "Changi Airport paradise — butterfly garden, pool, playground", layover: "2–16h", airlines: ["Singapore Airlines", "Scoot"] },
-  KUL: { flavour: "Affordable stopover, amazing street food, family friendly", layover: "3–12h", airlines: ["Malaysia Airlines", "AirAsia X"] },
-  HKG: { flavour: "Vibrant city, Disneyland day trip possible on longer layovers", layover: "3–14h", airlines: ["Cathay Pacific"] },
-  BKK: { flavour: "Incredible food, temples, and family-friendly chaos", layover: "4–18h", airlines: ["Thai Airways", "EVA Air"] },
-  NRT: { flavour: "Unique cultural stopover, Tokyo day trip in 8+ hours", layover: "3–16h", airlines: ["ANA", "JAL"] },
-  AMS: { flavour: "Schiphol is compact and family-friendly, quick KLM connections", layover: "2–6h", airlines: ["KLM"] },
-  FRA: { flavour: "Major Lufthansa hub, efficient connections to Asia/Oceania", layover: "2–6h", airlines: ["Lufthansa"] },
-  CDG: { flavour: "Large hub with global reach, Air France quality", layover: "2–8h", airlines: ["Air France"] },
-  HEL: { flavour: "Fastest Europe–Asia routing over the Arctic, cosy airport", layover: "2–6h", airlines: ["Finnair"] },
-  IST: { flavour: "Massive new airport, gateway between Europe and the East", layover: "3–8h", airlines: ["Turkish Airlines"] },
-  DUB: { flavour: "Coach from UK, then cheap Aer Lingus or Emirates connections", layover: "2–10h", airlines: ["Aer Lingus", "Emirates", "Etihad"] },
-  BUD: { flavour: "Budget flight from UK, then long-haul via Gulf carriers", layover: "4–12h", airlines: ["Wizz Air", "Qatar Airways"] },
-  LAX: { flavour: "US route to Oz — sometimes surprisingly cheap via the Pacific", layover: "4–12h", airlines: ["Qantas", "United", "American"] },
-  DFW: { flavour: "American Airlines Pacific hub, occasional deep fare sales", layover: "3–10h", airlines: ["American Airlines", "Qantas"] }
+  DXB:{flavour:"World-class airport, city easily visited in 12+ hrs",layover:"3–14h",airlines:["Emirates"]},
+  DOH:{flavour:"Stunning new terminal, family lounge, desert excursions",layover:"3–10h",airlines:["Qatar Airways"]},
+  AUH:{flavour:"Excellent kids facilities, Louvre Abu Dhabi nearby",layover:"3–12h",airlines:["Etihad Airways"]},
+  SIN:{flavour:"Changi Airport paradise — butterfly garden, pool, playground",layover:"2–16h",airlines:["Singapore Airlines","Scoot"]},
+  KUL:{flavour:"Affordable stopover, amazing street food, family friendly",layover:"3–12h",airlines:["Malaysia Airlines","AirAsia X"]},
+  HKG:{flavour:"Vibrant city, Disneyland day trip possible on longer layovers",layover:"3–14h",airlines:["Cathay Pacific"]},
+  BKK:{flavour:"Incredible food, temples, and family-friendly chaos",layover:"4–18h",airlines:["Thai Airways","EVA Air"]},
+  NRT:{flavour:"Unique cultural stopover, Tokyo day trip in 8+ hours",layover:"3–16h",airlines:["ANA","JAL"]},
+  AMS:{flavour:"Schiphol is compact and family-friendly, quick KLM connections",layover:"2–6h",airlines:["KLM"]},
+  FRA:{flavour:"Major Lufthansa hub, efficient connections to Asia/Oceania",layover:"2–6h",airlines:["Lufthansa"]},
+  CDG:{flavour:"Large hub with global reach, Air France quality",layover:"2–8h",airlines:["Air France"]},
+  HEL:{flavour:"Fastest Europe–Asia routing over the Arctic, cosy airport",layover:"2–6h",airlines:["Finnair"]},
+  IST:{flavour:"Massive new airport, gateway between Europe and the East",layover:"3–8h",airlines:["Turkish Airlines"]},
+  DUB:{flavour:"Coach from UK, then cheap Aer Lingus or Emirates connections",layover:"2–10h",airlines:["Aer Lingus","Emirates","Etihad"]},
+  BUD:{flavour:"Budget flight from UK, then long-haul via Gulf carriers",layover:"4–12h",airlines:["Wizz Air","Qatar Airways"]},
+  LAX:{flavour:"US route to Oz — sometimes surprisingly cheap via the Pacific",layover:"4–12h",airlines:["Qantas","United","American"]},
+  DFW:{flavour:"American Airlines Pacific hub, occasional deep fare sales",layover:"3–10h",airlines:["American Airlines","Qantas"]},
 };
 
+// Hotel estimates: per person per night (3★ family room, 2A+2C split across 4 people)
+const HOTEL_ESTIMATES = {
+  DXB:{ppn:32,note:"3★ Dubai family hotel"},
+  DOH:{ppn:28,note:"3★ Doha family hotel"},
+  AUH:{ppn:28,note:"3★ Abu Dhabi family hotel"},
+  SIN:{ppn:42,note:"3★ Singapore family hotel"},
+  KUL:{ppn:20,note:"3★ KL family hotel"},
+  BKK:{ppn:18,note:"3★ Bangkok family hotel"},
+  HKG:{ppn:38,note:"3★ Hong Kong family hotel"},
+  NRT:{ppn:35,note:"3★ Tokyo family hotel"},
+  IST:{ppn:22,note:"3★ Istanbul family hotel"},
+  AMS:{ppn:38,note:"3★ Amsterdam family hotel"},
+  FRA:{ppn:32,note:"3★ Frankfurt family hotel"},
+};
+
+// ══════════════════════════════════════════════
+// ROUTE DATA
+// stopoverAt: hub code where overnight stay happens (null = transit only)
+// stopoverNights: 1 or 2 (0 = transit only)
+// ══════════════════════════════════════════════
 const ROUTES = [
-  // === LHR Direct-ish & 1-stop ===
-  { id:"lhr-dxb",origin:"LHR",hubs:["DXB"],airlines:["Emirates"],duration:"22–24h",stops:1,pricePP:980,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false },
-  { id:"lhr-doh",origin:"LHR",hubs:["DOH"],airlines:["Qatar Airways"],duration:"22–25h",stops:1,pricePP:950,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false },
-  { id:"lhr-sin",origin:"LHR",hubs:["SIN"],airlines:["Singapore Airlines"],duration:"23–26h",stops:1,pricePP:1050,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:10,unconventional:false },
-  { id:"lhr-auh",origin:"LHR",hubs:["AUH"],airlines:["Etihad Airways"],duration:"23–25h",stops:1,pricePP:970,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false },
-  { id:"lhr-kul",origin:"LHR",hubs:["KUL"],airlines:["Malaysia Airlines"],duration:"24–27h",stops:1,pricePP:870,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:7,unconventional:false },
-  { id:"lhr-hkg",origin:"LHR",hubs:["HKG"],airlines:["Cathay Pacific"],duration:"22–25h",stops:1,pricePP:1080,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:9,unconventional:false },
-  { id:"lhr-bkk",origin:"LHR",hubs:["BKK"],airlines:["Thai Airways"],duration:"25–28h",stops:1,pricePP:920,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:7,unconventional:false },
-  { id:"lhr-ist",origin:"LHR",hubs:["IST"],airlines:["Turkish Airlines"],duration:"24–28h",stops:1,pricePP:850,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:7,unconventional:false },
-  { id:"lhr-hel-sin",origin:"LHR",hubs:["HEL","SIN"],airlines:["Finnair","Singapore Airlines"],duration:"28–32h",stops:2,pricePP:1020,dates:["2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:8,unconventional:false },
-  { id:"lhr-ams-sin",origin:"LHR",hubs:["AMS"],airlines:["KLM","Qantas"],duration:"25–28h",stops:1,pricePP:1100,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false },
-  { id:"lhr-fra-sin",origin:"LHR",hubs:["FRA","SIN"],airlines:["Lufthansa","Singapore Airlines"],duration:"27–30h",stops:2,pricePP:990,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false },
-  { id:"lhr-cdg-sin",origin:"LHR",hubs:["CDG"],airlines:["Air France","Qantas"],duration:"26–29h",stops:1,pricePP:1050,dates:["2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:7,unconventional:false },
-  { id:"lhr-nrt",origin:"LHR",hubs:["NRT"],airlines:["ANA"],duration:"26–30h",stops:1,pricePP:1120,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:8,unconventional:false },
-  { id:"lhr-lax",origin:"LHR",hubs:["LAX"],airlines:["Qantas","American"],duration:"28–34h",stops:1,pricePP:1140,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:7,unconventional:false },
 
-  // === MAN 1-stop ===
-  { id:"man-dxb",origin:"MAN",hubs:["DXB"],airlines:["Emirates"],duration:"23–26h",stops:1,pricePP:1020,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false },
-  { id:"man-doh",origin:"MAN",hubs:["DOH"],airlines:["Qatar Airways"],duration:"23–26h",stops:1,pricePP:990,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false },
-  { id:"man-ist",origin:"MAN",hubs:["IST"],airlines:["Turkish Airlines"],duration:"25–29h",stops:1,pricePP:890,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:7,unconventional:false },
-  { id:"man-auh",origin:"MAN",hubs:["AUH"],airlines:["Etihad Airways"],duration:"24–27h",stops:1,pricePP:1010,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false },
-  { id:"man-sin",origin:"MAN",hubs:["AMS","SIN"],airlines:["KLM","Singapore Airlines"],duration:"28–32h",stops:2,pricePP:1060,dates:["2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:8,unconventional:false },
-  { id:"man-hel",origin:"MAN",hubs:["HEL"],airlines:["Finnair","Qantas"],duration:"26–30h",stops:1,pricePP:1080,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false },
-  { id:"man-fra",origin:"MAN",hubs:["FRA"],airlines:["Lufthansa"],duration:"26–30h",stops:1,pricePP:1050,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:7,unconventional:false },
+  // ── LHR TRANSIT ROUTES ──
+  {id:"lhr-dxb",origin:"LHR",hubs:["DXB"],airlines:["Emirates"],duration:"22–24h",stops:1,pricePP:980,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"lhr-doh",origin:"LHR",hubs:["DOH"],airlines:["Qatar Airways"],duration:"22–25h",stops:1,pricePP:950,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"lhr-sin",origin:"LHR",hubs:["SIN"],airlines:["Singapore Airlines"],duration:"23–26h",stops:1,pricePP:1050,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:10,unconventional:false},
+  {id:"lhr-auh",origin:"LHR",hubs:["AUH"],airlines:["Etihad Airways"],duration:"23–25h",stops:1,pricePP:970,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false},
+  {id:"lhr-kul",origin:"LHR",hubs:["KUL"],airlines:["Malaysia Airlines"],duration:"24–27h",stops:1,pricePP:870,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:7,unconventional:false},
+  {id:"lhr-hkg",origin:"LHR",hubs:["HKG"],airlines:["Cathay Pacific"],duration:"22–25h",stops:1,pricePP:1080,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"lhr-bkk",origin:"LHR",hubs:["BKK"],airlines:["Thai Airways"],duration:"25–28h",stops:1,pricePP:920,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:7,unconventional:false},
+  {id:"lhr-ist",origin:"LHR",hubs:["IST"],airlines:["Turkish Airlines"],duration:"24–28h",stops:1,pricePP:850,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:7,unconventional:false},
+  {id:"lhr-hel-sin",origin:"LHR",hubs:["HEL","SIN"],airlines:["Finnair","Singapore Airlines"],duration:"28–32h",stops:2,pricePP:1020,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:8,unconventional:false},
+  {id:"lhr-ams-sin",origin:"LHR",hubs:["AMS"],airlines:["KLM","Qantas"],duration:"25–28h",stops:1,pricePP:1100,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false},
+  {id:"lhr-fra-sin",origin:"LHR",hubs:["FRA","SIN"],airlines:["Lufthansa","Singapore Airlines"],duration:"27–30h",stops:2,pricePP:990,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false},
+  {id:"lhr-nrt",origin:"LHR",hubs:["NRT"],airlines:["ANA"],duration:"26–30h",stops:1,pricePP:1120,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:8,unconventional:false},
+  {id:"lhr-lax",origin:"LHR",hubs:["LAX"],airlines:["Qantas","American"],duration:"28–34h",stops:1,pricePP:1140,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:7,unconventional:false},
+  {id:"lhr-cdg-bkk",origin:"LHR",hubs:["CDG","BKK"],airlines:["Air France","Thai Airways"],duration:"28–33h",stops:2,pricePP:940,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:7,unconventional:false},
 
-  // === BHX 1-stop ===
-  { id:"bhx-dxb",origin:"BHX",hubs:["DXB"],airlines:["Emirates"],duration:"23–26h",stops:1,pricePP:1040,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false },
-  { id:"bhx-doh",origin:"BHX",hubs:["DOH"],airlines:["Qatar Airways"],duration:"24–27h",stops:1,pricePP:1010,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false },
-  { id:"bhx-ist",origin:"BHX",hubs:["IST"],airlines:["Turkish Airlines"],duration:"26–30h",stops:1,pricePP:920,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:7,unconventional:false },
-  { id:"bhx-ams",origin:"BHX",hubs:["AMS"],airlines:["KLM","Qantas"],duration:"26–29h",stops:1,pricePP:1090,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false },
-  { id:"bhx-fra-sin",origin:"BHX",hubs:["FRA","SIN"],airlines:["Lufthansa","Singapore Airlines"],duration:"29–33h",stops:2,pricePP:1020,dates:["2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:8,unconventional:false },
+  // ── MAN TRANSIT ROUTES ──
+  {id:"man-dxb",origin:"MAN",hubs:["DXB"],airlines:["Emirates"],duration:"23–26h",stops:1,pricePP:1020,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"man-doh",origin:"MAN",hubs:["DOH"],airlines:["Qatar Airways"],duration:"23–26h",stops:1,pricePP:990,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"man-ist",origin:"MAN",hubs:["IST"],airlines:["Turkish Airlines"],duration:"25–29h",stops:1,pricePP:890,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:7,unconventional:false},
+  {id:"man-auh",origin:"MAN",hubs:["AUH"],airlines:["Etihad Airways"],duration:"24–27h",stops:1,pricePP:1010,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false},
+  {id:"man-hel",origin:"MAN",hubs:["HEL"],airlines:["Finnair","Qantas"],duration:"26–30h",stops:1,pricePP:1080,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false},
+  {id:"man-fra",origin:"MAN",hubs:["FRA"],airlines:["Lufthansa"],duration:"26–30h",stops:1,pricePP:1050,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:7,unconventional:false},
+  {id:"man-ams-sin",origin:"MAN",hubs:["AMS","SIN"],airlines:["KLM","Singapore Airlines"],duration:"28–32h",stops:2,pricePP:1060,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:8,unconventional:false},
 
-  // === UNCONVENTIONAL ROUTES ===
-  { id:"man-dub-dxb",origin:"MAN",hubs:["DUB","DXB"],airlines:["Ryanair","Emirates"],duration:"27–32h",stops:2,pricePP:830,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:6,unconventional:true,savingVs:"man-dxb",savingNote:"Coach/Ryanair to Dublin, then Emirates long-haul" },
-  { id:"man-bud-doh",origin:"MAN",hubs:["BUD","DOH"],airlines:["Wizz Air","Qatar Airways"],duration:"29–34h",stops:2,pricePP:790,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:6,unconventional:true,savingVs:"man-doh",savingNote:"Budget Wizz Air to Budapest, then Qatar long-haul" },
-  { id:"bhx-dub-doh",origin:"BHX",hubs:["DUB","DOH"],airlines:["Ryanair","Qatar Airways"],duration:"28–33h",stops:2,pricePP:820,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:6,unconventional:true,savingVs:"bhx-doh",savingNote:"Budget flight to Dublin, then Qatar long-haul" },
-  { id:"man-ams-kul",origin:"MAN",hubs:["AMS","KUL"],airlines:["easyJet","AirAsia X"],duration:"30–36h",stops:2,pricePP:760,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:5,unconventional:true,savingVs:"man-sin",savingNote:"easyJet to Amsterdam, then AirAsia X via KL" },
-  { id:"lhr-dub-sin",origin:"LHR",hubs:["DUB","SIN"],airlines:["Aer Lingus","Singapore Airlines"],duration:"28–33h",stops:2,pricePP:890,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:7,unconventional:true,savingVs:"lhr-sin",savingNote:"Position via Dublin for cheaper SQ connection" },
-  { id:"lhr-bud-ist",origin:"LHR",hubs:["BUD","IST"],airlines:["Wizz Air","Turkish Airlines"],duration:"29–35h",stops:2,pricePP:750,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:5,unconventional:true,savingVs:"lhr-ist",savingNote:"Wizz Air to Budapest, then Turkish via Istanbul" },
-  { id:"man-lax-mel",origin:"MAN",hubs:["LAX"],airlines:["Virgin Atlantic","Qantas"],duration:"30–36h",stops:1,pricePP:1100,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:7,unconventional:true,savingVs:"man-dxb",savingNote:"Pacific route via LA — sometimes sale fares appear" },
-  { id:"lhr-dfw-mel",origin:"LHR",hubs:["DFW"],airlines:["American Airlines","Qantas"],duration:"32–38h",stops:1,pricePP:1080,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:6,unconventional:true,savingVs:"lhr-lax",savingNote:"Via Dallas — AA/Qantas codeshare, occasional deep discounts" },
-  { id:"bhx-ams-kul",origin:"BHX",hubs:["AMS","KUL"],airlines:["Flybe/KLM","AirAsia X"],duration:"31–37h",stops:2,pricePP:780,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:5,unconventional:true,savingVs:"bhx-ams",savingNote:"Codeshare to Amsterdam then budget AirAsia X via KL" },
-  { id:"man-ist-kul",origin:"MAN",hubs:["IST","KUL"],airlines:["Turkish Airlines","AirAsia X"],duration:"30–36h",stops:2,pricePP:820,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:6,unconventional:true,savingVs:"man-ist",savingNote:"Turkish to Istanbul, then budget hop via KL" },
-  { id:"lhr-cdg-bkk",origin:"LHR",hubs:["CDG","BKK"],airlines:["Air France","Thai Airways"],duration:"28–33h",stops:2,pricePP:940,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:7,unconventional:false },
-  { id:"man-cdg-doh",origin:"MAN",hubs:["CDG","DOH"],airlines:["easyJet","Qatar Airways"],duration:"28–33h",stops:2,pricePP:840,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:7,unconventional:true,savingVs:"man-doh",savingNote:"Budget easyJet to Paris, then Qatar long-haul" },
+  // ── BHX TRANSIT ROUTES ──
+  {id:"bhx-dxb",origin:"BHX",hubs:["DXB"],airlines:["Emirates"],duration:"23–26h",stops:1,pricePP:1040,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"bhx-doh",origin:"BHX",hubs:["DOH"],airlines:["Qatar Airways"],duration:"24–27h",stops:1,pricePP:1010,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"bhx-ist",origin:"BHX",hubs:["IST"],airlines:["Turkish Airlines"],duration:"26–30h",stops:1,pricePP:920,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:7,unconventional:false},
+  {id:"bhx-ams",origin:"BHX",hubs:["AMS"],airlines:["KLM","Qantas"],duration:"26–29h",stops:1,pricePP:1090,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false},
+  {id:"bhx-fra-sin",origin:"BHX",hubs:["FRA","SIN"],airlines:["Lufthansa","Singapore Airlines"],duration:"29–33h",stops:2,pricePP:1020,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:8,unconventional:false},
+
+  // ── UNCONVENTIONAL TRANSIT ROUTES ──
+  {id:"man-dub-dxb",origin:"MAN",hubs:["DUB","DXB"],airlines:["Ryanair","Emirates"],duration:"27–32h",stops:2,pricePP:830,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:6,unconventional:true,savingVs:"man-dxb",savingNote:"Coach/Ryanair to Dublin, then Emirates long-haul"},
+  {id:"man-bud-doh",origin:"MAN",hubs:["BUD","DOH"],airlines:["Wizz Air","Qatar Airways"],duration:"29–34h",stops:2,pricePP:790,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:6,unconventional:true,savingVs:"man-doh",savingNote:"Budget Wizz Air to Budapest, then Qatar long-haul"},
+  {id:"bhx-dub-doh",origin:"BHX",hubs:["DUB","DOH"],airlines:["Ryanair","Qatar Airways"],duration:"28–33h",stops:2,pricePP:820,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:6,unconventional:true,savingVs:"bhx-doh",savingNote:"Budget flight to Dublin, then Qatar long-haul"},
+  {id:"man-ams-kul",origin:"MAN",hubs:["AMS","KUL"],airlines:["easyJet","AirAsia X"],duration:"30–36h",stops:2,pricePP:760,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:5,unconventional:true,savingVs:"man-ams-sin",savingNote:"easyJet to Amsterdam, then AirAsia X via KL"},
+  {id:"lhr-dub-sin",origin:"LHR",hubs:["DUB","SIN"],airlines:["Aer Lingus","Singapore Airlines"],duration:"28–33h",stops:2,pricePP:890,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:7,unconventional:true,savingVs:"lhr-sin",savingNote:"Position via Dublin for cheaper SQ connection"},
+  {id:"lhr-bud-ist",origin:"LHR",hubs:["BUD","IST"],airlines:["Wizz Air","Turkish Airlines"],duration:"29–35h",stops:2,pricePP:750,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:5,unconventional:true,savingVs:"lhr-ist",savingNote:"Wizz Air to Budapest, then Turkish via Istanbul"},
+  {id:"man-lax-mel",origin:"MAN",hubs:["LAX"],airlines:["Virgin Atlantic","Qantas"],duration:"30–36h",stops:1,pricePP:1100,stopoverAt:null,stopoverNights:0,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:7,unconventional:true,savingVs:"man-dxb",savingNote:"Pacific route via LA — sometimes sale fares appear"},
+  {id:"lhr-dfw-mel",origin:"LHR",hubs:["DFW"],airlines:["American Airlines","Qantas"],duration:"32–38h",stops:1,pricePP:1080,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:6,unconventional:true,savingVs:"lhr-lax",savingNote:"Via Dallas — AA/Qantas codeshare, occasional deep discounts"},
+  {id:"bhx-ams-kul",origin:"BHX",hubs:["AMS","KUL"],airlines:["Flybe/KLM","AirAsia X"],duration:"31–37h",stops:2,pricePP:780,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:5,unconventional:true,savingVs:"bhx-ams",savingNote:"Codeshare to Amsterdam then budget AirAsia X via KL"},
+  {id:"man-ist-kul",origin:"MAN",hubs:["IST","KUL"],airlines:["Turkish Airlines","AirAsia X"],duration:"30–36h",stops:2,pricePP:820,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:6,unconventional:true,savingVs:"man-ist",savingNote:"Turkish to Istanbul, then budget hop via KL"},
+  {id:"man-cdg-doh",origin:"MAN",hubs:["CDG","DOH"],airlines:["easyJet","Qatar Airways"],duration:"28–33h",stops:2,pricePP:840,stopoverAt:null,stopoverNights:0,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:7,unconventional:true,savingVs:"man-doh",savingNote:"Budget easyJet to Paris, then Qatar long-haul"},
+
+  // ── STOPOVER ROUTES: 1 NIGHT ──
+  // Flight price reflects the stopover programme ticket (often similar to standard fare or small surcharge)
+  {id:"lhr-dxb-s1",origin:"LHR",hubs:["DXB"],airlines:["Emirates"],duration:"24h+ flights + 1 night",stops:1,pricePP:950,stopoverAt:"DXB",stopoverNights:1,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:10,unconventional:false},
+  {id:"lhr-doh-s1",origin:"LHR",hubs:["DOH"],airlines:["Qatar Airways"],duration:"24h+ flights + 1 night",stops:1,pricePP:920,stopoverAt:"DOH",stopoverNights:1,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"lhr-sin-s1",origin:"LHR",hubs:["SIN"],airlines:["Singapore Airlines"],duration:"24h+ flights + 1 night",stops:1,pricePP:1020,stopoverAt:"SIN",stopoverNights:1,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:10,unconventional:false},
+  {id:"lhr-kul-s1",origin:"LHR",hubs:["KUL"],airlines:["Malaysia Airlines"],duration:"24h+ flights + 1 night",stops:1,pricePP:840,stopoverAt:"KUL",stopoverNights:1,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-13",quality:8,unconventional:false},
+  {id:"lhr-ist-s1",origin:"LHR",hubs:["IST"],airlines:["Turkish Airlines"],duration:"24h+ flights + 1 night",stops:1,pricePP:820,stopoverAt:"IST",stopoverNights:1,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false},
+  {id:"man-dxb-s1",origin:"MAN",hubs:["DXB"],airlines:["Emirates"],duration:"24h+ flights + 1 night",stops:1,pricePP:990,stopoverAt:"DXB",stopoverNights:1,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"man-doh-s1",origin:"MAN",hubs:["DOH"],airlines:["Qatar Airways"],duration:"24h+ flights + 1 night",stops:1,pricePP:960,stopoverAt:"DOH",stopoverNights:1,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"man-ist-s1",origin:"MAN",hubs:["IST"],airlines:["Turkish Airlines"],duration:"24h+ flights + 1 night",stops:1,pricePP:860,stopoverAt:"IST",stopoverNights:1,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false},
+  {id:"bhx-dxb-s1",origin:"BHX",hubs:["DXB"],airlines:["Emirates"],duration:"24h+ flights + 1 night",stops:1,pricePP:1010,stopoverAt:"DXB",stopoverNights:1,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"bhx-doh-s1",origin:"BHX",hubs:["DOH"],airlines:["Qatar Airways"],duration:"24h+ flights + 1 night",stops:1,pricePP:980,stopoverAt:"DOH",stopoverNights:1,dates:["2025-12-25","2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:9,unconventional:false},
+
+  // ── STOPOVER ROUTES: 2 NIGHTS ──
+  {id:"lhr-dxb-s2",origin:"LHR",hubs:["DXB"],airlines:["Emirates"],duration:"24h+ flights + 2 nights",stops:1,pricePP:950,stopoverAt:"DXB",stopoverNights:2,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:10,unconventional:false},
+  {id:"lhr-doh-s2",origin:"LHR",hubs:["DOH"],airlines:["Qatar Airways"],duration:"24h+ flights + 2 nights",stops:1,pricePP:920,stopoverAt:"DOH",stopoverNights:2,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"lhr-sin-s2",origin:"LHR",hubs:["SIN"],airlines:["Singapore Airlines"],duration:"24h+ flights + 2 nights",stops:1,pricePP:1020,stopoverAt:"SIN",stopoverNights:2,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:10,unconventional:false},
+  {id:"man-dxb-s2",origin:"MAN",hubs:["DXB"],airlines:["Emirates"],duration:"24h+ flights + 2 nights",stops:1,pricePP:990,stopoverAt:"DXB",stopoverNights:2,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"man-doh-s2",origin:"MAN",hubs:["DOH"],airlines:["Qatar Airways"],duration:"24h+ flights + 2 nights",stops:1,pricePP:960,stopoverAt:"DOH",stopoverNights:2,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"bhx-dxb-s2",origin:"BHX",hubs:["DXB"],airlines:["Emirates"],duration:"24h+ flights + 2 nights",stops:1,pricePP:1010,stopoverAt:"DXB",stopoverNights:2,dates:["2025-12-25","2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:9,unconventional:false},
+
+  // ── TRANSFER + STOPOVER COMBOS ──
+  {id:"lhr-fra-dxb-s1",origin:"LHR",hubs:["FRA","DXB"],airlines:["Lufthansa","Emirates"],duration:"26h+ flights + 1 night",stops:2,pricePP:940,stopoverAt:"DXB",stopoverNights:1,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false},
+  {id:"man-ams-sin-s1",origin:"MAN",hubs:["AMS","SIN"],airlines:["KLM","Singapore Airlines"],duration:"28h+ flights + 1 night",stops:2,pricePP:1030,stopoverAt:"SIN",stopoverNights:1,dates:["2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"lhr-hel-sin-s1",origin:"LHR",hubs:["HEL","SIN"],airlines:["Finnair","Singapore Airlines"],duration:"28h+ flights + 1 night",stops:2,pricePP:1000,stopoverAt:"SIN",stopoverNights:1,dates:["2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:9,unconventional:false},
+  {id:"man-ist-dxb-s1",origin:"MAN",hubs:["IST","DXB"],airlines:["Turkish Airlines","Emirates"],duration:"28h+ flights + 1 night",stops:2,pricePP:870,stopoverAt:"DXB",stopoverNights:1,dates:["2025-12-26","2025-12-27","2025-12-28"],returnDate:"2026-01-12",quality:8,unconventional:false},
+  {id:"bhx-fra-sin-s1",origin:"BHX",hubs:["FRA","SIN"],airlines:["Lufthansa","Singapore Airlines"],duration:"28h+ flights + 1 night",stops:2,pricePP:1010,stopoverAt:"SIN",stopoverNights:1,dates:["2025-12-26","2025-12-27"],returnDate:"2026-01-12",quality:8,unconventional:false},
 ];
 
-
 // ══════════════════════════════════════════════
-// MAP SETUP
+// HELPERS
 // ══════════════════════════════════════════════
-
-const map = L.map('map', { zoomControl: true, scrollWheelZoom: true, worldCopyJump: true }).setView([20, 60], 3);
-
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution: '© <a href="https://carto.com/">CARTO</a> © <a href="https://osm.org/">OSM</a>',
-  subdomains: 'abcd', maxZoom: 18
-}).addTo(map);
-
-// Hub markers
-const hubMarkers = {};
-Object.entries(HUB_INFO).forEach(([code, info]) => {
-  const ap = AIRPORTS[code];
-  if (!ap) return;
-  const marker = L.circleMarker([ap.lat, ap.lng], {
-    radius: 7, fillColor: '#6366f1', fillOpacity: 0.8,
-    color: '#a78bfa', weight: 2
-  }).addTo(map);
-  marker.bindPopup(`
-    <div class="hub-popup">
-      <h3>${ap.name} (${code})</h3>
-      <div class="airlines">✈ ${info.airlines.join(', ')}</div>
-      <div class="layover">⏱ Typical layover: ${info.layover}</div>
-      <div class="flavour">${info.flavour}</div>
-    </div>
-  `, { maxWidth: 260 });
-  hubMarkers[code] = marker;
-});
-
-// Origin markers
-['MAN','BHX','LHR'].forEach(code => {
-  const ap = AIRPORTS[code];
-  L.circleMarker([ap.lat, ap.lng], {
-    radius: 9, fillColor: '#e0e7ff', fillOpacity: 0.9,
-    color: '#6366f1', weight: 3
-  }).addTo(map).bindTooltip(ap.name, { permanent: true, direction: 'top', className: 'origin-tooltip', offset: [0, -10] });
-});
-
-// MEL marker
-const melAp = AIRPORTS.MEL;
-L.circleMarker([melAp.lat, melAp.lng], {
-  radius: 10, fillColor: '#f59e0b', fillOpacity: 0.9,
-  color: '#fbbf24', weight: 3
-}).addTo(map).bindTooltip('Melbourne', { permanent: true, direction: 'bottom', className: 'dest-tooltip', offset: [0, 10] });
-
-
-// ── ARC DRAWING ──
-function bezierArc(p1, p2, numPoints = 60) {
-  const latlngs = [];
-  const midLat = (p1[0] + p2[0]) / 2;
-  let midLng = (p1[1] + p2[1]) / 2;
-  if (Math.abs(p1[1] - p2[1]) > 180) {
-    midLng = (p1[1] + p2[1] + 360) / 2;
-  }
-  const dist = Math.sqrt((p2[0]-p1[0])**2 + (p2[1]-p1[1])**2);
-  const cpLat = midLat + dist * 0.15;
-  for (let i = 0; i <= numPoints; i++) {
-    const t = i / numPoints;
-    const lat = (1-t)*(1-t)*p1[0] + 2*(1-t)*t*cpLat + t*t*p2[0];
-    const lng = (1-t)*(1-t)*p1[1] + 2*(1-t)*t*midLng + t*t*p2[1];
-    latlngs.push([lat, lng]);
-  }
-  return latlngs;
+function getHotelCostPP(route) {
+  if (!route.stopoverAt || !route.stopoverNights) return 0;
+  const est = HOTEL_ESTIMATES[route.stopoverAt];
+  if (!est) return 0;
+  return est.ppn * route.stopoverNights;
 }
 
-const arcLayers = {};
-
-function drawArcs(routes) {
-  Object.values(arcLayers).forEach(l => map.removeLayer(l));
-  Object.keys(arcLayers).forEach(k => delete arcLayers[k]);
-
-  routes.forEach(route => {
-    const originAp = AIRPORTS[route.origin];
-    const destAp = AIRPORTS.MEL;
-    const points = [[originAp.lat, originAp.lng]];
-    route.hubs.forEach(h => {
-      const hp = AIRPORTS[h];
-      if (hp) points.push([hp.lat, hp.lng]);
-    });
-    points.push([destAp.lat, destAp.lng]);
-
-    const color = route.pricePP < 1000 ? '#10b981' : route.pricePP <= 1150 ? '#f59e0b' : '#ef4444';
-    const glowClass = route.pricePP < 1000 ? 'glow-green' : route.pricePP <= 1150 ? 'glow-amber' : 'glow-red';
-
-    const allLatLngs = [];
-    for (let i = 0; i < points.length - 1; i++) {
-      const seg = bezierArc(points[i], points[i+1]);
-      allLatLngs.push(...seg);
-    }
-
-    const polyline = L.polyline(allLatLngs, {
-      color: color, weight: 2.5, opacity: route.unconventional ? 0.5 : 0.6,
-      dashArray: route.unconventional ? '6 4' : '8 6',
-      className: `arc-path ${glowClass}`
-    }).addTo(map);
-
-    polyline.on('click', () => highlightRoute(route.id));
-    arcLayers[route.id] = polyline;
-  });
+function getTotalPP(route) {
+  return route.pricePP + getHotelCostPP(route);
 }
 
-function getPriceBand(pp) {
-  if (pp < 1000) return { cls: 'badge-green', label: 'Under Budget', band: 'green-band' };
-  if (pp <= 1150) return { cls: 'badge-amber', label: 'At Budget', band: 'amber-band' };
-  return { cls: 'badge-red', label: 'Over Budget', band: 'red-band' };
+function getPriceBand(totalPP) {
+  if (totalPP < 1000) return {cls:'badge-green',label:'Under Budget',band:'green-band',color:'var(--green)',mapColor:'#10b981'};
+  if (totalPP <= 1150) return {cls:'badge-amber',label:'At Budget',band:'amber-band',color:'var(--amber)',mapColor:'#f59e0b'};
+  return {cls:'badge-red',label:'Over Budget',band:'red-band',color:'var(--red)',mapColor:'#ef4444'};
 }
 
 function getSaving(route) {
@@ -449,138 +431,323 @@ function getSaving(route) {
 }
 
 function buildGoogleFlightsURL(route) {
-  const origin = route.origin;
-  const outDate = route.dates[0];
-  const retDate = route.returnDate;
-  return `https://www.google.com/travel/flights?q=Flights+from+${origin}+to+MEL+on+${outDate}+return+${retDate}+2+adults+1+child+aged+4+1+child+aged+7+economy`;
+  return `https://www.google.com/travel/flights?q=Flights+from+${route.origin}+to+MEL+on+${route.dates[0]}+return+${route.returnDate}+2+adults+1+child+aged+4+1+child+aged+7+economy`;
 }
 
 function buildSkyscannerURL(route) {
-  const origin = route.origin.toLowerCase();
   const outDate = route.dates[0].replace(/-/g,'').slice(2);
   const retDate = route.returnDate.replace(/-/g,'').slice(2);
-  return `https://www.skyscanner.net/transport/flights/${origin}/mel/${outDate}/${retDate}/?adults=2&children=2&childrenyoungest=4&childrenoldest=7&cabinclass=economy`;
+  return `https://www.skyscanner.net/transport/flights/${route.origin.toLowerCase()}/mel/${outDate}/${retDate}/?adults=2&children=2&childrenyoungest=4&childrenoldest=7&cabinclass=economy`;
 }
 
+// ══════════════════════════════════════════════
+// MAP SETUP
+// ══════════════════════════════════════════════
+const map = L.map('map',{zoomControl:true,scrollWheelZoom:true,worldCopyJump:true}).setView([20,60],3);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+  attribution:'© <a href="https://carto.com/">CARTO</a> © <a href="https://osm.org/">OSM</a>',
+  subdomains:'abcd',maxZoom:18
+}).addTo(map);
+
+// Hub markers
+const hubMarkers = {};
+const stopoverHubCodes = new Set(ROUTES.filter(r=>r.stopoverAt).map(r=>r.stopoverAt));
+
+Object.entries(HUB_INFO).forEach(([code,info]) => {
+  const ap = AIRPORTS[code];
+  if (!ap) return;
+  const isStopoverHub = stopoverHubCodes.has(code);
+  const marker = L.circleMarker([ap.lat,ap.lng],{
+    radius: isStopoverHub ? 9 : 7,
+    fillColor: isStopoverHub ? '#fb923c' : '#6366f1',
+    fillOpacity: 0.85,
+    color: isStopoverHub ? '#fdba74' : '#a78bfa',
+    weight: isStopoverHub ? 3 : 2
+  }).addTo(map);
+
+  const hotelEst = HOTEL_ESTIMATES[code];
+  marker.bindPopup(`
+    <div class="hub-popup">
+      <h3 class="${isStopoverHub?'stopover-hub-title':''}">${isStopoverHub?'🏨 ':''}${ap.name} (${code})</h3>
+      <div class="airlines">✈ ${info.airlines.join(', ')}</div>
+      <div class="layover">⏱ Typical transit: ${info.layover}</div>
+      ${hotelEst&&isStopoverHub?`<div class="hotel-note">🏨 Hotel est. ~£${hotelEst.ppn}pp/night (${hotelEst.note})</div>`:''}
+      <div class="flavour">${info.flavour}</div>
+    </div>
+  `,{maxWidth:280});
+  hubMarkers[code] = marker;
+});
+
+// Origin markers
+['MAN','BHX','LHR'].forEach(code => {
+  const ap = AIRPORTS[code];
+  L.circleMarker([ap.lat,ap.lng],{radius:9,fillColor:'#e0e7ff',fillOpacity:.9,color:'#6366f1',weight:3})
+   .addTo(map)
+   .bindTooltip(ap.name,{permanent:true,direction:'top',offset:[0,-10]});
+});
+
+// MEL marker
+const melAp = AIRPORTS.MEL;
+L.circleMarker([melAp.lat,melAp.lng],{radius:10,fillColor:'#f59e0b',fillOpacity:.9,color:'#fbbf24',weight:3})
+ .addTo(map)
+ .bindTooltip('Melbourne',{permanent:true,direction:'bottom',offset:[0,10]});
+
+// ARC DRAWING
+function bezierArc(p1,p2,numPoints=60) {
+  const latlngs=[];
+  const midLat=(p1[0]+p2[0])/2;
+  let midLng=(p1[1]+p2[1])/2;
+  if(Math.abs(p1[1]-p2[1])>180) midLng=(p1[1]+p2[1]+360)/2;
+  const dist=Math.sqrt((p2[0]-p1[0])**2+(p2[1]-p1[1])**2);
+  const cpLat=midLat+dist*0.15;
+  for(let i=0;i<=numPoints;i++){
+    const t=i/numPoints;
+    const lat=(1-t)*(1-t)*p1[0]+2*(1-t)*t*cpLat+t*t*p2[0];
+    const lng=(1-t)*(1-t)*p1[1]+2*(1-t)*t*midLng+t*t*p2[1];
+    latlngs.push([lat,lng]);
+  }
+  return latlngs;
+}
+
+// arcLayers now stores arrays of polylines per route (for multi-segment)
+const arcLayers = {};
+
+function drawArcs(routes) {
+  Object.values(arcLayers).forEach(arr => arr.forEach(l=>map.removeLayer(l)));
+  Object.keys(arcLayers).forEach(k=>delete arcLayers[k]);
+
+  routes.forEach(route => {
+    const originAp = AIRPORTS[route.origin];
+    const points = [[originAp.lat,originAp.lng]];
+    route.hubs.forEach(h => {
+      const hp = AIRPORTS[h];
+      if(hp) points.push([hp.lat,hp.lng]);
+    });
+    points.push([melAp.lat,melAp.lng]);
+
+    const totalPP = getTotalPP(route);
+    const band = getPriceBand(totalPP);
+    const baseColor = band.mapColor;
+    const isStopoverRoute = route.stopoverNights > 0;
+
+    arcLayers[route.id] = [];
+
+    for(let i=0;i<points.length-1;i++) {
+      // Which hub is at the END of this segment?
+      const toCode = i === points.length-2 ? 'MEL' : route.hubs[i];
+      const fromCode = i === 0 ? route.origin : route.hubs[i-1];
+
+      // Is this segment immediately before or after a stopover hub?
+      const segInvolvesStopover = route.stopoverAt &&
+        (toCode === route.stopoverAt || fromCode === route.stopoverAt);
+
+      const segColor = isStopoverRoute ? '#fb923c' : baseColor;
+      const segDash = isStopoverRoute ? null : (route.unconventional ? '6 4' : '8 6');
+      const segWeight = segInvolvesStopover ? 3.5 : (isStopoverRoute ? 3 : 2.5);
+      const segOpacity = isStopoverRoute ? 0.75 : (route.unconventional ? 0.5 : 0.6);
+      const cssClass = isStopoverRoute ? 'arc-path arc-solid glow-orange' : `arc-path ${route.pricePP<1000?'glow-green':route.pricePP<=1150?'glow-amber':'glow-red'}`;
+
+      const seg = bezierArc(points[i],points[i+1]);
+      const poly = L.polyline(seg,{
+        color: segColor,
+        weight: segWeight,
+        opacity: segOpacity,
+        dashArray: segDash,
+        className: cssClass
+      }).addTo(map);
+
+      poly.on('click',()=>highlightRoute(route.id));
+      arcLayers[route.id].push(poly);
+    }
+  });
+}
+
+// ══════════════════════════════════════════════
+// CARD RENDERING
+// ══════════════════════════════════════════════
 function renderCards(routes) {
   const list = document.getElementById('cardsList');
-  const count = document.getElementById('cardsCount');
-  count.textContent = `${routes.length} route${routes.length !== 1 ? 's' : ''} found`;
+  const countEl = document.getElementById('cardsCount');
+  const stopoverCount = routes.filter(r=>r.stopoverNights>0).length;
+  countEl.textContent = `${routes.length} route${routes.length!==1?'s':''} found${stopoverCount>0?` · ${stopoverCount} with stopover`:''}`;
   list.innerHTML = '';
 
   routes.forEach(route => {
-    const band = getPriceBand(route.pricePP);
-    const totalPrice = route.pricePP * 4;
+    const hotelPP = getHotelCostPP(route);
+    const totalPP = getTotalPP(route);
+    const band = getPriceBand(totalPP);
+    const totalFamily = totalPP * 4;
     const saving = getSaving(route);
-    const hubNames = route.hubs.map(h => AIRPORTS[h] ? `${AIRPORTS[h].name}` : h);
-    const routeDisplay = [AIRPORTS[route.origin].name, ...hubNames, 'Melbourne'].map((n,i,a) =>
-      i < a.length - 1 ? `<span class="hub">${n}</span> <span class="arrow">→</span>` : `<span class="hub">${n}</span>`
-    ).join(' ');
+    const isStopover = route.stopoverNights > 0;
+    const hasTransferAndStopover = isStopover && route.hubs.length > 1;
+
+    // Build route display
+    const routeParts = [];
+    const originName = AIRPORTS[route.origin].name;
+    routeParts.push(`<span class="hub">${originName}</span>`);
+
+    route.hubs.forEach(h => {
+      const name = AIRPORTS[h] ? AIRPORTS[h].name : h;
+      const isStopoverHub = h === route.stopoverAt;
+      routeParts.push(`<span class="arrow">→</span>`);
+      if(isStopoverHub) {
+        routeParts.push(`<span class="hub-stopover">${name}</span><span class="hub-tag-stopover">(${route.stopoverNights} night${route.stopoverNights>1?'s':''})</span>`);
+      } else if(isStopover) {
+        routeParts.push(`<span class="hub">${name}</span><span class="hub-tag">(change)</span>`);
+      } else {
+        routeParts.push(`<span class="hub">${name}</span>`);
+      }
+    });
+    routeParts.push(`<span class="arrow">→</span><span class="hub">Melbourne</span>`);
 
     const card = document.createElement('div');
-    card.className = `route-card ${band.band}`;
+    // Stopover cards get orange band
+    const bandClass = isStopover ? 'stopover-card' : band.band;
+    card.className = `route-card ${bandClass}`;
     card.dataset.routeId = route.id;
+
+    const hotelEst = route.stopoverAt ? HOTEL_ESTIMATES[route.stopoverAt] : null;
+    const stopoverLabel = isStopover ?
+      `🏨 ${route.stopoverNights}-Night Stopover` : null;
+
     card.innerHTML = `
       <div class="card-header">
         <div class="card-airlines">${route.airlines.join(' + ')}</div>
-        <div>
+        <div class="card-badges">
+          ${isStopover ? `<span class="card-badge badge-stopover">${stopoverLabel}</span>` : ''}
+          ${hasTransferAndStopover ? `<span class="card-badge" style="background:rgba(99,102,241,.12);color:#818cf8;border:1px solid rgba(99,102,241,.3)">⚡ Transfer + Stopover</span>` : ''}
           <span class="card-badge ${band.cls}">${band.label}</span>
           ${route.unconventional ? '<span class="card-badge badge-unconv">💡 Unconventional</span>' : ''}
         </div>
       </div>
-      <div class="card-route">${routeDisplay}</div>
+      <div class="card-route">${routeParts.join(' ')}</div>
       <div class="card-stats">
-        <div class="stat"><div class="stat-val">${route.duration}</div><div class="stat-label">Duration</div></div>
-        <div class="stat"><div class="stat-val">${route.stops} stop${route.stops !== 1 ? 's' : ''}</div><div class="stat-label">Stops</div></div>
+        <div class="stat"><div class="stat-val">${route.duration}</div><div class="stat-label">Journey</div></div>
+        <div class="stat"><div class="stat-val">${route.stops} stop${route.stops!==1?'s':''}</div><div class="stat-label">Connections</div></div>
         <div class="stat"><div class="stat-val">${route.quality}/10</div><div class="stat-label">Quality</div></div>
       </div>
+      ${isStopover && hotelEst ? `
+      <div class="hotel-breakdown">
+        <div class="hotel-breakdown-header">🏨 Cost breakdown per person</div>
+        <div class="hotel-row"><span>✈ Flights (return)</span><span>£${route.pricePP.toLocaleString()}</span></div>
+        <div class="hotel-row"><span>🏨 Hotel ~£${hotelEst.ppn}/night × ${route.stopoverNights} night${route.stopoverNights>1?'s':''}</span><span>£${hotelPP}</span></div>
+        <div class="hotel-total-row"><span>Total per person</span><span style="color:var(--orange)">£${totalPP.toLocaleString()}</span></div>
+        <div style="font-size:.68rem;color:var(--text-muted);margin-top:.2rem">${hotelEst.note} · Family hotel total: £${(hotelPP*4).toLocaleString()}</div>
+      </div>` : `
       <div class="card-price">
-        <div>
-          <div class="price-pp" style="color:${route.pricePP < 1000 ? 'var(--green)' : route.pricePP <= 1150 ? 'var(--amber)' : 'var(--red)'}">£${route.pricePP.toLocaleString()} pp</div>
-          ${saving ? `<div class="saving-note">💰 Save ~£${saving * 4} vs standard route</div>` : ''}
+        <div class="price-left">
+          <div class="price-pp" style="color:${band.color}">£${route.pricePP.toLocaleString()} pp</div>
+          ${saving ? `<div class="saving-note">💰 Save ~£${saving*4} vs standard route</div>` : ''}
         </div>
-        <div class="price-total">Family total: <strong>£${totalPrice.toLocaleString()}</strong></div>
-      </div>
+        <div class="price-total">Family total: <strong>£${(route.pricePP*4).toLocaleString()}</strong></div>
+      </div>`}
+      ${isStopover ? `
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.7rem;padding:.5rem .6rem;background:rgba(255,255,255,.03);border-radius:var(--radius-sm)">
+        <div class="price-pp" style="color:var(--orange)">£${totalPP.toLocaleString()} pp all-in</div>
+        <div class="price-total">Family all-in: <strong>£${totalFamily.toLocaleString()}</strong></div>
+      </div>` : ''}
       ${route.unconventional && route.savingNote ? `<div style="font-size:.73rem;color:#a78bfa;margin-bottom:.6rem;padding:0 .2rem">💡 ${route.savingNote}</div>` : ''}
       <div class="card-actions">
         <a href="${buildGoogleFlightsURL(route)}" target="_blank" rel="noopener" class="btn-google">✈ Google Flights</a>
         <a href="${buildSkyscannerURL(route)}" target="_blank" rel="noopener" class="btn-skyscanner">🔍 Skyscanner</a>
       </div>
     `;
-    card.addEventListener('click', (e) => {
-      if (e.target.closest('a')) return;
+    card.addEventListener('click',(e) => {
+      if(e.target.closest('a')) return;
       highlightRoute(route.id);
     });
     list.appendChild(card);
   });
 }
 
+// ══════════════════════════════════════════════
+// HIGHLIGHT
+// ══════════════════════════════════════════════
 let activeRouteId = null;
 
 function highlightRoute(routeId) {
-  if (activeRouteId === routeId) { clearHighlight(); return; }
+  if(activeRouteId===routeId){clearHighlight();return;}
   clearHighlight();
   activeRouteId = routeId;
 
-  Object.entries(arcLayers).forEach(([id, layer]) => {
-    if (id === routeId) {
-      layer.setStyle({ weight: 4.5, opacity: 1, dashArray: null });
-      layer.bringToFront();
-      layer.getElement()?.classList.add('highlight');
-    } else {
-      layer.setStyle({ opacity: 0.15, weight: 1.5 });
-    }
+  Object.entries(arcLayers).forEach(([id,arr]) => {
+    arr.forEach(layer => {
+      if(id===routeId) {
+        layer.setStyle({weight:5,opacity:1,dashArray:null});
+        layer.bringToFront();
+        layer.getElement()?.classList.add('highlight');
+      } else {
+        layer.setStyle({opacity:.1,weight:1.5});
+      }
+    });
   });
 
   document.querySelectorAll('.route-card').forEach(card => {
-    if (card.dataset.routeId === routeId) {
+    if(card.dataset.routeId===routeId) {
       card.classList.add('active');
-      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      card.scrollIntoView({behavior:'smooth',block:'nearest'});
     }
   });
 
-  const route = ROUTES.find(r => r.id === routeId);
-  if (route && route.hubs.length > 0) {
-    const firstHub = route.hubs[0];
-    if (hubMarkers[firstHub]) hubMarkers[firstHub].openPopup();
+  const route = ROUTES.find(r=>r.id===routeId);
+  if(route) {
+    const hubToShow = route.stopoverAt || route.hubs[0];
+    if(hubToShow && hubMarkers[hubToShow]) hubMarkers[hubToShow].openPopup();
   }
 }
 
 function clearHighlight() {
   activeRouteId = null;
-  Object.values(arcLayers).forEach(layer => {
-    const route = ROUTES.find(r => arcLayers[r.id] === layer);
-    if (route) {
-      const color = route.pricePP < 1000 ? '#10b981' : route.pricePP <= 1150 ? '#f59e0b' : '#ef4444';
-      layer.setStyle({ weight: 2.5, opacity: route.unconventional ? 0.5 : 0.6, dashArray: route.unconventional ? '6 4' : '8 6', color });
+  Object.entries(arcLayers).forEach(([id,arr]) => {
+    const route = ROUTES.find(r=>r.id===id);
+    if(!route) return;
+    const totalPP = getTotalPP(route);
+    const band = getPriceBand(totalPP);
+    const isStopover = route.stopoverNights > 0;
+    arr.forEach((layer,i) => {
+      const toCode = i === arr.length-1 ? 'MEL' : route.hubs[i];
+      const fromCode = i === 0 ? route.origin : route.hubs[i-1];
+      const segInvolvesStopover = route.stopoverAt && (toCode===route.stopoverAt||fromCode===route.stopoverAt);
+      layer.setStyle({
+        color: isStopover ? '#fb923c' : band.mapColor,
+        weight: segInvolvesStopover ? 3.5 : (isStopover ? 3 : 2.5),
+        opacity: isStopover ? 0.75 : (route.unconventional ? 0.5 : 0.6),
+        dashArray: isStopover ? null : (route.unconventional ? '6 4' : '8 6')
+      });
       layer.getElement()?.classList.remove('highlight');
-    }
+    });
   });
-  document.querySelectorAll('.route-card').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.route-card').forEach(c=>c.classList.remove('active'));
 }
 
+// ══════════════════════════════════════════════
+// FILTERS
+// ══════════════════════════════════════════════
 let currentSort = 'price';
 
 function getFilteredRoutes() {
   const airport = document.getElementById('filterAirport').value;
+  const type = document.getElementById('filterType').value;
   const date = document.getElementById('filterDate').value;
   const maxBudget = parseInt(document.getElementById('filterBudget').value);
   const maxStops = parseInt(document.getElementById('filterStops').value);
 
   let filtered = ROUTES.filter(r => {
-    if (airport !== 'ALL' && r.origin !== airport) return false;
-    if (date !== 'ALL' && !r.dates.includes(date)) return false;
-    if (r.pricePP > maxBudget) return false;
-    if (r.stops > maxStops) return false;
+    if(airport!=='ALL' && r.origin!==airport) return false;
+    if(type==='TRANSIT' && r.stopoverNights>0) return false;
+    if(type==='STOPOVER' && r.stopoverNights===0) return false;
+    if(date!=='ALL' && !r.dates.includes(date)) return false;
+    if(getTotalPP(r) > maxBudget) return false;
+    if(r.stops > maxStops) return false;
     return true;
   });
 
-  if (currentSort === 'price') {
-    filtered.sort((a, b) => (a.pricePP * 4) - (b.pricePP * 4));
+  if(currentSort==='price') {
+    filtered.sort((a,b)=>getTotalPP(a)-getTotalPP(b));
   } else {
-    filtered.sort((a, b) => {
-      if (a.stops !== b.stops) return a.stops - b.stops;
-      return b.quality - a.quality;
+    filtered.sort((a,b)=>{
+      if(a.stops!==b.stops) return a.stops-b.stops;
+      return b.quality-a.quality;
     });
   }
   return filtered;
@@ -593,31 +760,30 @@ function updateView() {
   drawArcs(routes);
 }
 
-document.getElementById('filterAirport').addEventListener('change', updateView);
-document.getElementById('filterDate').addEventListener('change', updateView);
-document.getElementById('filterBudget').addEventListener('input', (e) => {
-  document.getElementById('budgetDisplay').textContent = `£${parseInt(e.target.value).toLocaleString()}`;
+document.getElementById('filterAirport').addEventListener('change',updateView);
+document.getElementById('filterType').addEventListener('change',updateView);
+document.getElementById('filterDate').addEventListener('change',updateView);
+document.getElementById('filterBudget').addEventListener('input',(e)=>{
+  document.getElementById('budgetDisplay').textContent=`£${parseInt(e.target.value).toLocaleString()}`;
   updateView();
 });
-document.getElementById('filterStops').addEventListener('change', updateView);
-
-document.getElementById('sortPrice').addEventListener('click', () => {
-  currentSort = 'price';
+document.getElementById('filterStops').addEventListener('change',updateView);
+document.getElementById('sortPrice').addEventListener('click',()=>{
+  currentSort='price';
   document.getElementById('sortPrice').classList.add('active');
   document.getElementById('sortRoute').classList.remove('active');
   updateView();
 });
-document.getElementById('sortRoute').addEventListener('click', () => {
-  currentSort = 'route';
+document.getElementById('sortRoute').addEventListener('click',()=>{
+  currentSort='route';
   document.getElementById('sortRoute').classList.add('active');
   document.getElementById('sortPrice').classList.remove('active');
   updateView();
 });
 
 updateView();
-
-window.addEventListener('resize', () => map.invalidateSize());
-setTimeout(() => map.invalidateSize(), 300);
+window.addEventListener('resize',()=>map.invalidateSize());
+setTimeout(()=>map.invalidateSize(),300);
 </script>
 </body>
 </html>
