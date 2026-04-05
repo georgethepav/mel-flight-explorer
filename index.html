@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Melbourne · Christmas 2025 — Flight Explorer for Estelle</title>
+<title>Melbourne · Christmas 2026 — Flight Explorer for Estelle</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -190,7 +190,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700}
       <div class="logo-icon">✈</div>
       <div>
         <h1>Melbourne Flight Explorer</h1>
-        <div class="subtitle">Prepared exclusively for Estelle · Christmas 2025</div>
+        <div class="subtitle">Prepared exclusively for Estelle · Christmas 2026</div>
       </div>
     </div>
     <div class="trip-info">
@@ -470,17 +470,26 @@ function getSaving(route) {
 }
 
 function buildGoogleFlightsURL(route) {
-  const out = route.dates[0];
-  const ret = route.returnDate;
-  // Google Flights: use /search?tfs= approach via encoded params
-  // Fallback: simple query string search which always resolves
-  const from = route.origin;
-  const outParts = out.split('-'); // ['2026','12','25']
-  const retParts = ret.split('-');
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const outStr = `${outParts[2]} ${months[parseInt(outParts[1])-1]} ${outParts[0]}`;
-  const retStr = `${retParts[2]} ${months[parseInt(retParts[1])-1]} ${retParts[0]}`;
-  return `https://www.google.com/travel/flights#flt=${from}.MEL.${out}*MEL.${from}.${ret};c:GBP;e:1;sd:1;t:f`;
+  const from = route.origin;   // 3-char IATA e.g. "LHR"
+  const out  = route.dates[0]; // "YYYY-MM-DD"
+  const ret  = route.returnDate;
+  // Build 94-byte TFS protobuf (Google Flights deep-link format)
+  // Structure: field1=28(RT) field2=2(ECO) field3(outbound leg 41b) + return data + field14=2(adults) + config
+  const b = [];
+  const s = str => str.split('').forEach(c => b.push(c.charCodeAt(0)));
+  b.push(0x08,0x1C,0x10,0x02);                             // ROUND_TRIP + ECONOMY
+  b.push(0x1A,0x29);                                        // outbound leg field, len=41
+  b.push(0x6A,0x07,0x08,0x01,0x12,0x03); s(from);          // origin airport segment
+  b.push(0x12,0x0A); s(out);                                // outbound date
+  b.push(0x6A,0x0C,0x08,0x03,0x12,0x08); s('/m/05kfs');    // MEL destination
+  b.push(0x1A,0x29);                                        // return leg ref
+  b.push(0x6A,0x0C,0x08,0x03,0x12,0x08); s('/m/05kfs');    // MEL origin
+  b.push(0x12,0x0A); s(ret);                                // return date
+  b.push(0x6A,0x07,0x08,0x01,0x12,0x03); s(from);          // origin destination segment
+  b.push(0x70,0x02);                                        // 2 adults
+  b.push(0x82,0x01,0x0B,0x08,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0x01); // config
+  const tfs = btoa(String.fromCharCode(...b)).replace(/\+/g,'-').replace(/\//g,'_');
+  return `https://www.google.com/travel/flights/search?tfs=${tfs}&hl=en-GB&curr=GBP`;
 }
 
 function buildSkyscannerURL(route) {
